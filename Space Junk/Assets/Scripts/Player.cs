@@ -134,6 +134,9 @@ public class Player : MonoBehaviour
         moveDir = Input.GetAxis("Horizontal") * transform.right + Input.GetAxis("Vertical") * transform.forward + Input.GetAxis("Depth") * transform.up;
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0 || Input.GetAxis("Depth") != 0)
         {
+            // add condition for raycast checking in velocity direction to
+            // A) have optional impact damage
+            // B) stop or reverse that directions speed
             if (thrusterFuel > 0)
             {
                 playerVel.y += Input.GetAxis("Depth") * thrusterForce * Time.deltaTime;
